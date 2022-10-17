@@ -4,7 +4,8 @@ const Schema = mongoose.Schema //物件建構子
 const urlSchema = new Schema({
   shortURL: {
     type: String, 
-    required: true 
+    required: true,
+    unique: true 
   },
   originalURL: {
     type: String,
