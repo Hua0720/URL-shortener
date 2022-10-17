@@ -29,10 +29,13 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+// 設定靜態檔案位置
+app.use(express.static('public'))
+
 
 // 設定首頁路由 (routes設定好後便可以刪除此路由設定)
 app.get('/', (req, res) => {
-  res.render('123')
+  res.render('index')
   // Todo.find() // 取出 Todo model 裡的所有資料
   //   .lean() // 把 Mongoose 的 Model 物件轉換成乾淨的 JavaScript 資料陣列
   //   .sort({ _id: 'asc' }) // 根據 _id 升冪排序

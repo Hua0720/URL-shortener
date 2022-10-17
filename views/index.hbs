@@ -1,13 +1,13 @@
 {{#if shortURL}}
 <div class="result">
   <h3>Success! Please use this link:</h3>
-  <p id="shortenURL">{{origin}}/{{shortURL}}</p>
+  <p id="shortURL">{{origin}}/{{shortURL}}</p>
 </div>
 <button class="copy btn btn-primary" onclick="copyURL()">Copy</button>
 
 <script>
   function copyURL() {
-    const URL = document.getElementById("shortenURL")
+    const URL = document.getElementById("shortURL")
     navigator.clipboard.writeText(URL.innerText)
       .then(() => alert('copied'))
       .catch(error => console.log(error))
