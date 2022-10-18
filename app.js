@@ -2,31 +2,14 @@
 const express = require('express')
 const exphbs = require('express-handlebars');
 
-const mongoose = require('mongoose') // 載入 mongoose
+const routes = require('./routes')// 引用路由器
+require("./config/mongoose") // 引用mongoose
 
 const shortenURL = require('../../utilities/shorten')
 const makeURL = require('../../models/URL')
 
-
 const app = express()
-const PORT = 3000
-
-// *使用 mongoose.connect 去連線 process.env 眾多環境變數之中的 MONGODB_URI 這項環境變數的資訊
-// *(process.env，是指 Node.js 環境變數的界面)
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // 設定連線到 mongoDB
-
-// 取得資料庫連線狀態
-const db = mongoose.connection
-
-// 連線異常
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-// 連線成功
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
+const PORT = 3000 // 設定預設port
 
 // 指定樣板引擎指定為 Handlebars
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
