@@ -18,12 +18,12 @@ router.post('/', (req, res) => {
   if (!req.body.url) return res.redirect('/')
   // 產生隨機碼
   const shortURL = shortenURL(5)
-  makeURL.findOne({ originalUrl: req.body.url })
+  const originalURL = req.body.originalURL
+  makeURL.findOne({ originalURL })
     .lean()
     // 產生新縮址
     .then(data => data ? data : makeURL.create({
-      shortURL,
-      originalUrl: req.body.url
+      shortURL, originalURL
     })
     )
     // 相同網址，產生相同的縮址

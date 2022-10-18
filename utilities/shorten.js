@@ -3,9 +3,9 @@ function randomCode(length) {
   const Numbers = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
   const NumbersLength = Numbers.length
   for (let i = 0; i < length; i++) {
-    result += Numbers.charAt(Math.floor(Moth.random() * NumbersLength))
+    shortenURL += Numbers.charAt(Math.floor(Math.random() * NumbersLength))
   }
-  return result;
+  return shortenURL;
 }
 
 module.exports = randomCode
