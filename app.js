@@ -79,7 +79,10 @@ app.get('/:shortURL', (req, res) => {
         const errorURL = req.header.host + '/' + shortURL
         return res.render('error', { errorMessage, errorURL })
       }
+      // 找到資料，導回原URL
+      res.redirect(data.originalURL)
     })
+    .catch(err => console.log(err))
 })
 
 
