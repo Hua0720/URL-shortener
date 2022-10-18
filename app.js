@@ -4,6 +4,9 @@ const exphbs = require('express-handlebars');
 
 const mongoose = require('mongoose') // 載入 mongoose
 
+const shorten = require('../../utilities/URL')
+const URL = require('../../models/URL')
+
 
 const app = express()
 const PORT = 3000
@@ -32,15 +35,18 @@ app.set('view engine', 'hbs')
 // 設定靜態檔案位置
 app.use(express.static('public'))
 
+// 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
+app.use(bodyParser.urlencoded({ extended: true }))
+
 
 // 設定首頁路由 (routes設定好後便可以刪除此路由設定)
 app.get('/', (req, res) => {
   res.render('index')
-  // Todo.find() // 取出 Todo model 裡的所有資料
-  //   .lean() // 把 Mongoose 的 Model 物件轉換成乾淨的 JavaScript 資料陣列
-  //   .sort({ _id: 'asc' }) // 根據 _id 升冪排序
-  //   .then(todos => res.render('index', { todos })) // 將資料傳給 index 樣板
-  //   .catch(error => console.error(error)) // 錯誤處理
+})
+
+// 新增URL網址
+app.post('/', (req, res) => {
+  
 })
 
 
