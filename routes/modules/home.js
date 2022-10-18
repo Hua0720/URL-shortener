@@ -52,3 +52,6 @@ app.get('/:shortURL', (req, res) => {
     })
     .catch(err => console.log(err))
 })
+
+// 匯出路由模組
+module.exports = router
