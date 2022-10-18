@@ -1,6 +1,7 @@
 // 載入 express 並建構應用程式伺服器
 const express = require('express')
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser') // 引用 body-parser
 
 const routes = require('./routes')// 引用路由器
 require("./config/mongoose") // 引用mongoose

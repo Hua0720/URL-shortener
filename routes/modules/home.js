@@ -8,12 +8,12 @@ const shortenURL = require('../../utilities/shorten')
 const makeURL = require('../../models/URL')
 
 // 設定首頁路由 (routes設定好後便可以刪除此路由設定)
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.render('index')
 })
 
 // 新增URL網址
-app.post('/', (req, res) => {
+router.post('/', (req, res) => {
   // 沒有按下製作鍵只會停留於首頁
   if (!req.body.url) return res.redirect('/')
   // 產生隨機碼
@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
 })
 
 // 將縮址導回原本網站
-app.get('/:shortURL', (req, res) => {
+router.get('/:shortURL', (req, res) => {
   const { shortURL } = req.params
   makeURL.findOne({ shortURL })
     .lean()
