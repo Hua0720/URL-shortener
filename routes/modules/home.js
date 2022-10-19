@@ -15,29 +15,23 @@ router.get('/', (req, res) => {
 // 新增URL網址
 router.post('/', (req, res) => {
   // 沒有按下製作鍵只會停留於首頁
-  if (!req.body.url) return res.redirect('/')
+  // if (!req.body.url) return res.redirect('/')
   // 產生隨機碼
   const shortURL = shortenURL(5)
   const originalURL = req.body.originalURL
+  const origin = req.headers.host
   makeURL.findOne({ originalURL })
     .lean()
     // 產生新縮址
-    .then(data => data ? data : makeURL.create({
-      shortURL, originalURL
-    })
-    )
+    .then(data => data ? data : makeURL.create({ originalURL, shortURL }))
     // 相同網址，產生相同的縮址
-    .then(data => res.render('index', {
-      origin: req.headers.origin,
-      shortURL: data.shortURL
-    })
-    )
+    .then(data => res.render('index', { originalURL, shortURL: data.shortURL, origin }))
     .catch(err => console.log(err))
 })
 
 // 將縮址導回原本網站
 router.get('/:shortURL', (req, res) => {
-  const { shortURL } = req.params
+  const shortURL = req.params.shortURL
   makeURL.findOne({ shortURL })
     .lean()
     // 若找不到資料，印出error.hbs頁面

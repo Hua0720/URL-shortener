@@ -13,4 +13,4 @@ const urlSchema = new Schema({
   },
 })
 
-module.exports = mongoose.model('URL', urlSchema)
+module.exports = mongoose.model('makeURL', urlSchema)

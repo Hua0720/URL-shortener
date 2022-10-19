@@ -1,22 +1,23 @@
 {{#if shortURL}}
 <div class="container">
   <h3>Success! Please use this link:</h3>
-  <p id="shortURL">{{origin}}/{{shortURL}}</p>
+  <a class="d-flex" href="{{originalURL}}" target="_blank">
+    <h4 class="shortURL">http://{{origin}}/{{shortURL}}</h4>
+  </a>
+  <button class="copy btn btn-primary" onclick="copyURL()">Copy</button>
 </div>
-<button class="copy btn btn-primary" onclick="copyURL()">Copy</button>
+
 
 <script>
   function copyURL() {
-    const URL = document.getElementById("shortURL")
-    navigator.clipboard.writeText(URL.innerText)
-      .then(() => alert('copied'))
-      .catch(error => console.log(error))
+    let copyText = document.querySelector('.shortURL').textContent
+    navigator.clipboard.writeText(copyText)
   }
 </script>
 {{else}}
 <form action="/" method="POST">
   <div class="container">
-    <input type="url" name="url" placeholder="Input URL here" required />
+    <input type="url" name="originalURL" placeholder="Input URL here" required />
     <button class="shorten" type="submit">Shorten URL</button>
   </div>
 </form>
