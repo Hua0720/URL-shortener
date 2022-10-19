@@ -1,97 +1,45 @@
-header {
-  overflow: hidden;
+body {
+  display: flex;
+  flex-direction: colum;
+  align-items: center;
 }
 
-.navbar .navbar-brand {
-  color: #4592af;
+h1 {
+  color: blueviolet;
+  font-weight: bold;
 }
 
-.navbar .navbar-brand:hover {
-  color: #226089;
+h3 {
+  color: blue;
+  font-weight: bold;
 }
 
-.banner {
-  position: relative;
-  z-index: -1;
-  margin: -5px;
-  height: 360px;
-  background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
-  background-size: cover;
-  filter: blur(3px);
+h4 {
+  color: rgb(26, 62, 87);
+  margin-top: 0px;
 }
 
-.search-bar .search-bar-outer {
-  margin: 0 auto;
-  max-width: 680px;
-  background-color: #fce2cf;
-  border-radius: 8px;
-  padding: 20px 30px;
-  border: 0;
-  margin-top: -60px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
 }
 
-.search-bar .search-bar-inner h4 {
-  color: #9b4b4b;
+button.copy {
+  width: 30%;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgba(68, 33, 5, 0.662);
+  color: rgba(206, 109, 61, 0.893);
+  padding: 3.px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.form-control::placeholder {
-  color: #aaaaaa;
-  font-size: 0.8rem;
+.errorMsg {
+  color: brown;
 }
 
-.btn-major {
-  background-color: #9b4b4b;
-  color: white;
+.errorUrl {
+  color: black;
 }
 
-.form-control:focus {
-  box-shadow: none;
-  border-color: #ced4da;
-}
-
-.card {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-  height: 180px;
-}
-
-.card-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.restaurant-category {
-  color: #666666;
-  font-size: 0.8rem;
-}
-
-.restaurant-show-title {
-  position: relative;
-  top: -100px;
-  color: white;
-  text-align: center;
-  font-size: 3rem;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (max-width: 992px) {
-  .card img {
-    height: 115px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .restaurant-show-title {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .card img {
-    height: auto;
-  }
-}

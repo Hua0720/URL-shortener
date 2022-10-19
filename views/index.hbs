@@ -4,7 +4,7 @@
   <a class="d-flex" href="{{originalURL}}" target="_blank">
     <h4 class="shortURL">http://{{origin}}/{{shortURL}}</h4>
   </a>
-  <button class="copy btn btn-primary" onclick="copyURL()">Copy</button>
+  <button class="copy btn btn-primary ms-3" onclick="copyURL()">Copy</button>
 </div>
 
 
@@ -15,10 +15,10 @@
   }
 </script>
 {{else}}
-<form action="/" method="POST">
-  <div class="container">
+<div class="container"></div>
+  <form action="/" method="POST">
     <input type="url" name="originalURL" placeholder="Input URL here" required />
-    <button class="shorten" type="submit">Shorten URL</button>
-  </div>
-</form>
+    <button class="btn btn-outline-primary" type="submit">Shorten URL</button>
+  </form>
+</div>
 {{/if}}
