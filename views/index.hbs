@@ -1,16 +1,18 @@
 {{#if shortURL}}
-<div class="container">
-  <h4>Success! Please use this link:</h4>
-  <a class="d-flex" href="{{originalURL}}" target="_blank">
-    <h5 class="shortURL">http://{{origin}}/{{shortURL}}</h5>
-  </a>
-  <button class="copy btn btn-primary ms-3" onclick="copyURL()">👉 copy 👈</button>
-  <a class="backBtn" href="/">Back 🏡</a>
+<div class="container p-1">
+  <div class="shadow-lg bg-body rounded ">
+    <p class="text-center m-0 p-2 border-bottom bg-dark p-2 text-white bg-opacity-75 fw-bolder">Success ! You can directly click the link:<a href="{{originalURL}}" class="pe-auto text-warning">http://{{origin}}/{{shortURL}}</a></p>
+    <p class="text-center m-0 " >or click the copy button</p>
+  </div>
+  <div class="d-flex justify-content-center m-3">
+    <button type="button" class="me-md-2 btn btn-primary" onclick="copyURL()"> copy </button>
+    <a class="backBtn btn btn-outline-secondary" href="/">Back 🏡</a>
+  </div>
 </div>
 
 {{else}}
 <form action="/" method="POST">
-  <div class="input-group">
+  <div class="input-group d-flex mb-3">
     <input type="url" name="originalURL" class="form-control" placeholder="Input URL here" aria-label="">
     <button class=" btn btn-outline-primary" type="submit">Shorten URL</button>
   </div>
