@@ -9,12 +9,12 @@
 </div>
 
 {{else}}
-<div class="container"></div>
-  <form action="/" method="POST">
-    <input type="url" name="originalURL" placeholder="Input URL here" required />
-    <button class="btn btn-outline-primary" type="submit">Shorten URL</button>
-  </form>
-</div>
+<form action="/" method="POST">
+  <div class="input-group">
+    <input type="url" name="originalURL" class="form-control" placeholder="Input URL here" aria-label="">
+    <button class=" btn btn-outline-primary" type="submit">Shorten URL</button>
+  </div>
+</form>
 {{/if}}
 
 <script>
